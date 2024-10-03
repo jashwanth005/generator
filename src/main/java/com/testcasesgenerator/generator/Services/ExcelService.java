@@ -11,19 +11,13 @@ public class ExcelService {
     public void saveTestCasesToExcel(String testCaseString, String filePath) throws Exception {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Test Cases");
-
-        // Split the test case string into individual test cases
         String[] testCases = testCaseString.split("- Test Case ID: ");
         int rowNum = 0;
-
-        // Create header row
         Row headerRow = sheet.createRow(rowNum++);
         headerRow.createCell(0).setCellValue("Test Case ID");
         headerRow.createCell(1).setCellValue("Scenario");
         headerRow.createCell(2).setCellValue("Steps");
         headerRow.createCell(3).setCellValue("Expected Result");
-
-        // Process each test case
         for (String testCase : testCases) {
             if (testCase.trim().isEmpty()) continue;
             Row row = sheet.createRow(rowNum++);
@@ -36,7 +30,7 @@ public class ExcelService {
             boolean isExpectedResultSection = false;
 
             for (String line : lines) {
-                line = line.trim(); // Ensure no leading/trailing spaces
+                line = line.trim(); /
 
                 if (line.contains("Scenario:")) {
                     scenario = line.split(":")[1].trim();
@@ -46,23 +40,19 @@ public class ExcelService {
                 } else if (line.matches("^\\d+\\..*")) {
                     isStepsSection = true;
                     steps.append(line).append("\n");
-                    isExpectedResultSection = false; // Steps section means we're out of the expected result section
+                    isExpectedResultSection = false; 
                 } else if (isStepsSection && !isExpectedResultSection) {
-                    steps.append(line).append("\n");  // Add continuation of steps if any
+                    steps.append(line).append("\n");  
                 } else if (isExpectedResultSection) {
-                    // Continue adding lines to expectedResult if multi-line expected result
                     expectedResult += " " + line;
                 }
             }
-
-            // Add data to Excel row
             row.createCell(0).setCellValue(caseId);
             row.createCell(1).setCellValue(scenario);
             row.createCell(2).setCellValue(steps.toString().trim());
-            row.createCell(3).setCellValue(expectedResult.trim());  // Ensure any extra spaces are trimmed
+            row.createCell(3).setCellValue(expectedResult.trim());
         }
 
-        // Save Excel file
         FileOutputStream fileOut = new FileOutputStream(filePath);
         workbook.write(fileOut);
         fileOut.close();

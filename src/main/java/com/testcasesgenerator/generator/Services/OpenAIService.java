@@ -15,7 +15,6 @@ private static final String OPENAI_API_URL = dotenv.get("OPENAI_API_URL");
     public String generateTestCasesWithOpenAI(String title, String description) throws Exception {
         OkHttpClient client = new OkHttpClient();
 
-        // Create request body for OpenAI API
         JSONObject requestBody = new JSONObject();
         JSONArray messages = new JSONArray();
         
@@ -39,11 +38,11 @@ private static final String OPENAI_API_URL = dotenv.get("OPENAI_API_URL");
                 .post(RequestBody.create(MediaType.parse("application/json"), requestBody.toString()))
                 .build();
 
-        // Execute request and get response
+       
         Response response = client.newCall(request).execute();
         String responseBody = response.body().string();
 
-        // Parse the response
+       
         JSONObject jsonResponse = new JSONObject(responseBody);
         return jsonResponse.getJSONArray("choices").getJSONObject(0).getJSONObject("message").getString("content");
     }

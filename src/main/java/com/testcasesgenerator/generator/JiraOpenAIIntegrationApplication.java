@@ -38,7 +38,8 @@ public class JiraOpenAIIntegrationApplication implements CommandLineRunner {
         var issue = jiraService.fetchJiraTicket(ticketId);
         String title = issue.getSummary();
         String description = issue.getDescription();
-
+        System.out.println("Title: " + title);
+        System.out.println("description: " + description);
         // Generate Test Cases using OpenAI
         String testCases = openAIService.generateTestCasesWithOpenAI(title, description);
 
