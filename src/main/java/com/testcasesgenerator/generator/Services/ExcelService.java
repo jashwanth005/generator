@@ -30,7 +30,7 @@ public class ExcelService {
             boolean isExpectedResultSection = false;
 
             for (String line : lines) {
-                line = line.trim(); /
+                line = line.trim();
 
                 if (line.contains("Scenario:")) {
                     scenario = line.split(":")[1].trim();
