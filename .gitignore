@@ -33,3 +33,4 @@ build/
 .vscode/
 .env
 test_cases.xlsx
+~$test_cases.xlsx

@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.testcasesgenerator.generator.DataCleaner.DataCleaner;
 import com.testcasesgenerator.generator.Services.ExcelService;
 import com.testcasesgenerator.generator.Services.JiraService;
 import com.testcasesgenerator.generator.Services.OpenAIService;
@@ -24,6 +25,8 @@ public class JiraOpenAIIntegrationApplication implements CommandLineRunner {
     
     @Autowired
     private ExcelService excelService;
+    @Autowired
+     private DataCleaner dataCleaner;
 
     public static void main(String[] args) {
         SpringApplication.run(JiraOpenAIIntegrationApplication.class, args);
@@ -32,19 +35,18 @@ public class JiraOpenAIIntegrationApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         final Dotenv dotenv = Dotenv.load();
-        String ticketId = dotenv.get("ticketId"); // Fetch from environment
+        String ticketId = dotenv.get("ticketId"); 
 
-        // Fetch Jira Ticket
         var issue = jiraService.fetchJiraTicket(ticketId);
-        String title = issue.getSummary();
-        String description = issue.getDescription();
+        String title =dataCleaner.cleanSensitiveData(issue.getSummary());
+        //issue.getSummary();
+        String description =dataCleaner.cleanSensitiveData(issue.getDescription());
+        // issue.getDescription();
+
         System.out.println("Title: " + title);
         System.out.println("description: " + description);
-        // Generate Test Cases using OpenAI
-        String testCases = openAIService.generateTestCasesWithOpenAI(title, description);
-
-        // Save Test Cases to Excel
-        excelService.saveTestCasesToExcel(testCases, "test_cases.xlsx");
+       String testCases = openAIService.generateTestCasesWithOpenAI(title, description);
+       excelService.saveTestCasesToExcel(testCases, "test_cases.xlsx");
     }
 }
 
