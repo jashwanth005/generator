@@ -22,7 +22,6 @@ public class JiraOpenAIIntegrationApplication implements CommandLineRunner {
     
     @Autowired
     private OpenAIService openAIService;
-    
     @Autowired
     private ExcelService excelService;
     @Autowired
@@ -42,7 +41,6 @@ public class JiraOpenAIIntegrationApplication implements CommandLineRunner {
         //issue.getSummary();
         String description =dataCleaner.cleanSensitiveData(issue.getDescription());
         // issue.getDescription();
-
         System.out.println("Title: " + title);
         System.out.println("description: " + description);
        String testCases = openAIService.generateTestCasesWithOpenAI(title, description);
