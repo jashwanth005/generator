@@ -43,8 +43,8 @@ public class JiraOpenAIIntegrationApplication implements CommandLineRunner {
         // issue.getDescription();
         System.out.println("Title: " + title);
         System.out.println("description: " + description);
-       String testCases = openAIService.generateTestCasesWithOpenAI(title, description);
-       excelService.saveTestCasesToExcel(testCases, "test_cases.xlsx");
+    //    String testCases = openAIService.generateTestCasesWithOpenAI(title, description);
+    //    excelService.saveTestCasesToExcel(testCases, "test_cases.xlsx");
     }
 }
 
