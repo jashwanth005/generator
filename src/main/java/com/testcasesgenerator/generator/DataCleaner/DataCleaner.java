@@ -14,7 +14,7 @@ public class DataCleaner {
     private List<String> sensitiveKeywords;
 
     public DataCleaner() {
-        this.sensitiveKeywords = loadSensitiveKeywords("sensitive_keywords.txt");
+        this.sensitiveKeywords = loadSensitiveKeywords("src/main/java/com/testcasesgenerator/generator/DataCleaner/sensitive_keywords.txt");
     }
 
     public String cleanSensitiveData(String text) {

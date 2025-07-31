@@ -18,7 +18,6 @@ private static final String JIRA_URL = dotenv.get("JIRA_URL");
 private static final String JIRA_USERNAME = dotenv.get("JIRA_USERNAME");
 private static final String JIRA_API_TOKEN = dotenv.get("JIRA_API_TOKEN");
 
-private DataCleaner dataCleaner = new DataCleaner();
 
     public Issue fetchJiraTicket(String ticketId) throws Exception {
         URI jiraServerUri = new URI(JIRA_URL);
@@ -30,8 +29,8 @@ private DataCleaner dataCleaner = new DataCleaner();
         Issue issue = jiraRestClient.getIssueClient().getIssue(ticketId).claim();
         jiraRestClient.close();
 
-        String cleanedSummary = dataCleaner.cleanSensitiveData(issue.getSummary());
-        String cleanedDescription = dataCleaner.cleanSensitiveData(issue.getDescription());
+        // String cleanedSummary = dataCleaner.cleanSensitiveData(issue.getSummary());
+        // String cleanedDescription = dataCleaner.cleanSensitiveData(issue.getDescription());
         
         return issue;
     }

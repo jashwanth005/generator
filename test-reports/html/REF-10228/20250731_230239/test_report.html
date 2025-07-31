@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Automation Report - REF-10228</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .summary { display: flex; gap: 20px; margin-bottom: 30px; }
+        .summary-card { background: #007acc; color: white; padding: 20px; border-radius: 8px; text-align: center; flex: 1; }
+        .summary-card.passed { background: #4CAF50; }
+        .summary-card.failed { background: #f44336; }
+        .summary-card.error { background: #ff9800; }
+        .test-case { border: 1px solid #ddd; margin-bottom: 20px; }
+        .test-case-header { background: #f8f9fa; padding: 15px; cursor: pointer; }
+        .test-case-content { padding: 20px; display: none; }
+        .test-case-content.show { display: block; }
+        .status-badge { padding: 4px 12px; border-radius: 20px; color: white; }
+        .status-passed { background: #4CAF50; }
+        .status-failed { background: #f44336; }
+        .status-error { background: #ff9800; }
+        .screenshots-container { display: flex; flex-wrap: wrap; gap: 15px; margin: 15px 0; }
+        .screenshot-item { text-align: center; }
+        .screenshot-label { font-size: 12px; color: #666; margin-bottom: 5px; }
+        .screenshot { max-width: 300px; height: auto; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+        .screenshot:hover { transform: scale(1.05); border-color: #007acc; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 1200px; padding: 20px; }
+        .close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: #bbb; }
+    </style>
+    <script>
+        function toggleTestCase(element) {
+            const content = element.nextElementSibling;
+            content.classList.toggle('show');
+        }
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = src;
+        }
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Test Automation Report</h1>
+            <div>Ticket ID: REF-10228 | Generated: 2025-07-31 23:02:39</div>
+        </div>
+<div class="summary">
+    <div class="summary-card">
+        <h3>11</h3>
+        <p>Total Tests</p>
+    </div>
+    <div class="summary-card passed">
+        <h3>11</h3>
+        <p>Passed</p>
+    </div>
+    <div class="summary-card failed">
+        <h3>0</h3>
+        <p>Failed</p>
+    </div>
+    <div class="summary-card error">
+        <h3>0</h3>
+        <p>Errors</p>
+    </div>
+    <div class="summary-card">
+        <h3>100.0%</h3>
+        <p>Pass Rate</p>
+    </div>
+</div>
+<div class="test-results">
+<h2>Test Execution Details</h2>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC001</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7836ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:01:32</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:01:40</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230139_886.png</p>
+<img src="/static/screenshots/REF-10228/TC001/20250731_230132/step_1_navigation_20250731_230139_886.png" alt="step_1_navigation_20250731_230139_886.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230140_041.png</p>
+<img src="/static/screenshots/REF-10228/TC001/20250731_230132/step_2_verification_20250731_230140_041.png" alt="step_2_verification_20250731_230140_041.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC002</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5108ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:01:40</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:01:45</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230145_052.png</p>
+<img src="/static/screenshots/REF-10228/TC002/20250731_230140/step_1_navigation_20250731_230145_052.png" alt="step_1_navigation_20250731_230145_052.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230145_203.png</p>
+<img src="/static/screenshots/REF-10228/TC002/20250731_230140/step_2_verification_20250731_230145_203.png" alt="step_2_verification_20250731_230145_203.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC003</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6109ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:01:45</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:01:51</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230151_186.png</p>
+<img src="/static/screenshots/REF-10228/TC003/20250731_230145/step_1_navigation_20250731_230151_186.png" alt="step_1_navigation_20250731_230151_186.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230151_334.png</p>
+<img src="/static/screenshots/REF-10228/TC003/20250731_230145/step_2_verification_20250731_230151_334.png" alt="step_2_verification_20250731_230151_334.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC004</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6814ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:01:51</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:01:58</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230158_014.png</p>
+<img src="/static/screenshots/REF-10228/TC004/20250731_230151/step_1_navigation_20250731_230158_014.png" alt="step_1_navigation_20250731_230158_014.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230158_158.png</p>
+<img src="/static/screenshots/REF-10228/TC004/20250731_230151/step_2_verification_20250731_230158_158.png" alt="step_2_verification_20250731_230158_158.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC006</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5832ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:01:58</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:02:04</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230203_861.png</p>
+<img src="/static/screenshots/REF-10228/TC006/20250731_230158/step_1_navigation_20250731_230203_861.png" alt="step_1_navigation_20250731_230203_861.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230204_009.png</p>
+<img src="/static/screenshots/REF-10228/TC006/20250731_230158/step_2_verification_20250731_230204_009.png" alt="step_2_verification_20250731_230204_009.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC007</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5892ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:02:04</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:02:10</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230209_764.png</p>
+<img src="/static/screenshots/REF-10228/TC007/20250731_230204/step_1_navigation_20250731_230209_764.png" alt="step_1_navigation_20250731_230209_764.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230209_915.png</p>
+<img src="/static/screenshots/REF-10228/TC007/20250731_230204/step_2_verification_20250731_230209_915.png" alt="step_2_verification_20250731_230209_915.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC008</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6816ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:02:10</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:02:16</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230216_594.png</p>
+<img src="/static/screenshots/REF-10228/TC008/20250731_230210/step_1_navigation_20250731_230216_594.png" alt="step_1_navigation_20250731_230216_594.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230216_740.png</p>
+<img src="/static/screenshots/REF-10228/TC008/20250731_230210/step_2_verification_20250731_230216_740.png" alt="step_2_verification_20250731_230216_740.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC009</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5331ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:02:16</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:02:22</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230221_923.png</p>
+<img src="/static/screenshots/REF-10228/TC009/20250731_230216/step_1_navigation_20250731_230221_923.png" alt="step_1_navigation_20250731_230221_923.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230222_081.png</p>
+<img src="/static/screenshots/REF-10228/TC009/20250731_230216/step_2_verification_20250731_230222_081.png" alt="step_2_verification_20250731_230222_081.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC010</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7029ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:02:22</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:02:29</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230228_977.png</p>
+<img src="/static/screenshots/REF-10228/TC010/20250731_230222/step_1_navigation_20250731_230228_977.png" alt="step_1_navigation_20250731_230228_977.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230229_128.png</p>
+<img src="/static/screenshots/REF-10228/TC010/20250731_230222/step_2_verification_20250731_230229_128.png" alt="step_2_verification_20250731_230229_128.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC011</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5846ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:02:29</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:02:35</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230234_825.png</p>
+<img src="/static/screenshots/REF-10228/TC011/20250731_230229/step_1_navigation_20250731_230234_825.png" alt="step_1_navigation_20250731_230234_825.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230234_985.png</p>
+<img src="/static/screenshots/REF-10228/TC011/20250731_230229/step_2_verification_20250731_230234_985.png" alt="step_2_verification_20250731_230234_985.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>TC012</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 3935ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-07-31 23:02:35</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-07-31 23:02:39</div>
+</div>
+</div>
+<h4>Screenshots</h4>
+<div class="screenshots-container">
+<div class="screenshot-item">
+<p class="screenshot-label">step_1_navigation_20250731_230238_787.png</p>
+<img src="/static/screenshots/REF-10228/TC012/20250731_230235/step_1_navigation_20250731_230238_787.png" alt="step_1_navigation_20250731_230238_787.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+<div class="screenshot-item">
+<p class="screenshot-label">step_2_verification_20250731_230238_945.png</p>
+<img src="/static/screenshots/REF-10228/TC012/20250731_230235/step_2_verification_20250731_230238_945.png" alt="step_2_verification_20250731_230238_945.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeImageModal()">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+</body>
+</html>

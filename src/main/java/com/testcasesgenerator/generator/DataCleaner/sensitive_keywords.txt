@@ -3,5 +3,4 @@ secret
 password
 token
 privateKey
-vymo
 HDFC

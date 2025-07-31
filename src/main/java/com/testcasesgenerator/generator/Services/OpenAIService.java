@@ -19,7 +19,7 @@ private static final String OPENAI_API_URL = dotenv.get("OPENAI_API_URL");
         JSONArray messages = new JSONArray();
         
         messages.put(new JSONObject().put("role", "system").put("content", "You are a QA engineer."));
-        messages.put(new JSONObject().put("role", "user").put("content", "Based on the following Jira ticket, generate detailed test cases. With covering all positive negative and edge cases.test cases create more then 5 testcases \n\n" +
+        messages.put(new JSONObject().put("role", "user").put("content", "Based on the following Jira ticket, generate detailed test cases. With covering all positive negative and edge cases \n\n" +
                 "Title: " + title + "\nDescription: " + description + "\n\n" +
                 "Provide test cases in this format:\n" +
                 "- Test Case ID: TC001\n" +
@@ -42,7 +42,7 @@ private static final String OPENAI_API_URL = dotenv.get("OPENAI_API_URL");
         Response response = client.newCall(request).execute();
         String responseBody = response.body().string();
         JSONObject jsonResponse = new JSONObject(responseBody);
-       // System.out.println(responseBody);
+        System.out.println(responseBody);
         return jsonResponse.getJSONArray("choices").getJSONObject(0).getJSONObject("message").getString("content");
     }
 }
