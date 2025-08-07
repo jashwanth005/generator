@@ -8,11 +8,13 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.testcasesgenerator.generator.Model.TestExecutionResult;
+import com.testcasesgenerator.generator.Model.TestStep;
 import com.testcasesgenerator.generator.Repository.TestExecutionResultRepository;
 
 @Service
@@ -24,7 +26,7 @@ public class TestReportGeneratorService {
     private static final String REPORTS_BASE_DIR = "test-reports/html";
 
     public String generateTestReport(String ticketId) throws IOException {
-        List<TestExecutionResult> executionResults = testExecutionResultRepository.findByTicketId(ticketId);
+        List<TestExecutionResult> executionResults = testExecutionResultRepository.findByTicketIdOrderByStartTimeDesc(ticketId);
         
         if (executionResults.isEmpty()) {
             throw new IllegalArgumentException("No execution results found for ticket: " + ticketId);
@@ -78,6 +80,139 @@ public class TestReportGeneratorService {
         return html.toString();
     }
 
+    private String generateTestResultsSection(List<TestExecutionResult> executionResults) {
+        StringBuilder html = new StringBuilder();
+        html.append("<div class=\"test-results\">\n");
+        html.append("<h2>Test Execution Details</h2>\n");
+
+        for (TestExecutionResult result : executionResults) {
+            html.append(generateTestCaseHtml(result));
+        }
+
+        html.append("</div>\n");
+        return html.toString();
+    }
+
+    private String generateTestCaseHtml(TestExecutionResult result) {
+        String statusClass = result.getExecutionStatus().toLowerCase();
+        String duration = result.getExecutionDurationMs() != null ? 
+            result.getExecutionDurationMs() + "ms" : "N/A";
+
+        StringBuilder html = new StringBuilder();
+        html.append("<div class=\"test-case\">\n");
+        
+        // Test case header
+        html.append(String.format(
+            "<div class=\"test-case-header %s\" onclick=\"toggleTestCase(this)\">\n" +
+            "<h3>%s</h3>\n" +
+            "<span class=\"status-badge status-%s\">%s</span>\n" +
+            "<span style=\"float: right; color: #666;\">Duration: %s</span>\n" +
+            "</div>\n",
+            statusClass, result.getTestCaseId(), statusClass, result.getExecutionStatus(), duration
+        ));
+
+        // Test case content
+        html.append("<div class=\"test-case-content\">\n");
+        
+        // Execution info
+        html.append("<div class=\"execution-info\">\n");
+        html.append(String.format(
+            "<div class=\"info-item\">\n" +
+            "<div class=\"info-label\">Start Time</div>\n" +
+            "<div class=\"info-value\">%s</div>\n" +
+            "</div>\n",
+            result.getStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+        ));
+        
+        if (result.getEndTime() != null) {
+            html.append(String.format(
+                "<div class=\"info-item\">\n" +
+                "<div class=\"info-label\">End Time</div>\n" +
+                "<div class=\"info-value\">%s</div>\n" +
+                "</div>\n",
+                result.getEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            ));
+        }
+        
+        html.append("</div>\n");
+
+        // Error message if exists
+        if (result.getErrorMessage() != null) {
+            html.append(String.format(
+                "<div class=\"step-details\" style=\"background: #ffebee;\">\n" +
+                "<h4 style=\"color: #d32f2f;\">Error Details</h4>\n" +
+                "<p>%s</p>\n" +
+                "</div>\n",
+                escapeHtml(result.getErrorMessage())
+            ));
+        }
+
+        // Test Steps and Screenshots
+        if (result.getExecutedSteps() != null && !result.getExecutedSteps().isEmpty()) {
+            html.append("<h4>Test Steps</h4>\n");
+            html.append("<div class=\"test-steps\">\n");
+            
+            for (TestStep step : result.getExecutedSteps()) {
+                html.append(generateTestStepHtml(step));
+            }
+            
+            html.append("</div>\n");
+        }
+
+        html.append("</div>\n");
+        html.append("</div>\n");
+        
+        return html.toString();
+    }
+
+    private String generateTestStepHtml(TestStep step) {
+        StringBuilder html = new StringBuilder();
+        String statusClass = step.getStatus().toLowerCase();
+        
+        html.append(String.format(
+            "<div class=\"test-step\">\n" +
+            "<div class=\"step-header\">\n" +
+            "<h5>Step %d: %s</h5>\n" +
+            "<span class=\"status-badge status-%s\">%s</span>\n" +
+            "</div>\n" +
+            "<div class=\"step-details\">\n" +
+            "<p><strong>Expected:</strong> %s</p>\n" +
+            "<p><strong>Actual:</strong> %s</p>\n",
+            step.getStepNumber(),
+            escapeHtml(step.getDescription()),
+            statusClass,
+            step.getStatus(),
+            escapeHtml(step.getExpectedResult()),
+            escapeHtml(step.getActualResult())
+        ));
+
+        if (step.getErrorMessage() != null) {
+            html.append(String.format(
+                "<p class=\"error-message\"><strong>Error:</strong> %s</p>\n",
+                escapeHtml(step.getErrorMessage())
+            ));
+        }
+
+        // Add screenshot if available
+        if (step.getScreenshotPath() != null) {
+            String relativePath = convertToRelativePath(step.getScreenshotPath());
+            String screenshotName = step.getScreenshotPath().substring(step.getScreenshotPath().lastIndexOf('/') + 1);
+            html.append(String.format(
+                "<div class=\"screenshot-item\">\n" +
+                "<p class=\"screenshot-label\">Screenshot</p>\n" +
+                "<img src=\"%s\" alt=\"%s\" class=\"screenshot\" onclick=\"openImageModal(this.src)\">\n" +
+                "</div>\n",
+                relativePath,
+                screenshotName
+            ));
+        }
+
+        html.append("</div>\n");
+        html.append("</div>\n");
+        
+        return html.toString();
+    }
+
     private String getHtmlHeader(String ticketId) {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         return "<!DOCTYPE html>\n" +
@@ -103,8 +238,12 @@ public class TestReportGeneratorService {
                "        .status-passed { background: #4CAF50; }\n" +
                "        .status-failed { background: #f44336; }\n" +
                "        .status-error { background: #ff9800; }\n" +
+               "        .test-step { border: 1px solid #eee; margin: 10px 0; padding: 15px; }\n" +
+               "        .step-header { display: flex; justify-content: space-between; align-items: center; }\n" +
+               "        .step-details { margin-top: 10px; }\n" +
+               "        .error-message { color: #f44336; }\n" +
                "        .screenshots-container { display: flex; flex-wrap: wrap; gap: 15px; margin: 15px 0; }\n" +
-               "        .screenshot-item { text-align: center; }\n" +
+               "        .screenshot-item { text-align: center; margin-top: 15px; }\n" +
                "        .screenshot-label { font-size: 12px; color: #666; margin-bottom: 5px; }\n" +
                "        .screenshot { max-width: 300px; height: auto; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }\n" +
                "        .screenshot:hover { transform: scale(1.05); border-color: #007acc; }\n" +
@@ -163,109 +302,6 @@ public class TestReportGeneratorService {
                "</div>\n";
     }
 
-    private String generateTestResultsSection(List<TestExecutionResult> executionResults) {
-        StringBuilder html = new StringBuilder();
-        html.append("<div class=\"test-results\">\n");
-        html.append("<h2>Test Execution Details</h2>\n");
-
-        for (TestExecutionResult result : executionResults) {
-            html.append(generateTestCaseHtml(result));
-        }
-
-        html.append("</div>\n");
-        return html.toString();
-    }
-
-    private String generateTestCaseHtml(TestExecutionResult result) {
-        String statusClass = result.getExecutionStatus().toLowerCase();
-        String duration = result.getExecutionDurationMs() != null ? 
-            result.getExecutionDurationMs() + "ms" : "N/A";
-
-        StringBuilder html = new StringBuilder();
-        html.append("<div class=\"test-case\">\n");
-        
-        // Test case header
-        html.append(String.format(
-            "<div class=\"test-case-header %s\" onclick=\"toggleTestCase(this)\">\n" +
-            "<h3>%s</h3>\n" +
-            "<span class=\"status-badge status-%s\">%s</span>\n" +
-            "<span style=\"float: right; color: #666;\">Duration: %s</span>\n" +
-            "</div>\n",
-            statusClass, result.getTestCaseId(), statusClass, result.getExecutionStatus(), duration
-        ));
-
-        // Test case content
-        html.append("<div class=\"test-case-content\">\n");
-        
-        // Execution info
-        html.append("<div class=\"execution-info\">\n");
-        html.append(String.format(
-            "<div class=\"info-item\">\n" +
-            "<div class=\"info-label\">Start Time</div>\n" +
-            "<div class=\"info-value\">%s</div>\n" +
-            "</div>\n",
-            result.getExecutionStartTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-        ));
-        
-        if (result.getExecutionEndTime() != null) {
-            html.append(String.format(
-                "<div class=\"info-item\">\n" +
-                "<div class=\"info-label\">End Time</div>\n" +
-                "<div class=\"info-value\">%s</div>\n" +
-                "</div>\n",
-                result.getExecutionEndTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-            ));
-        }
-        
-        if (result.getBrowserType() != null) {
-            html.append(String.format(
-                "<div class=\"info-item\">\n" +
-                "<div class=\"info-label\">Browser</div>\n" +
-                "<div class=\"info-value\">%s</div>\n" +
-                "</div>\n",
-                result.getBrowserType()
-            ));
-        }
-        
-        html.append("</div>\n");
-
-        // Error message if exists
-        if (result.getErrorMessage() != null) {
-            html.append(String.format(
-                "<div class=\"step-details\" style=\"background: #ffebee;\">\n" +
-                "<h4 style=\"color: #d32f2f;\">Error Details</h4>\n" +
-                "<p>%s</p>\n" +
-                "</div>\n",
-                escapeHtml(result.getErrorMessage())
-            ));
-        }
-
-        // Screenshots
-        if (result.getScreenshotPaths() != null && !result.getScreenshotPaths().isEmpty()) {
-            html.append("<h4>Screenshots</h4>\n");
-            html.append("<div class=\"screenshots-container\">\n");
-            for (String screenshotPath : result.getScreenshotPaths()) {
-                String relativePath = convertToRelativePath(screenshotPath);
-                String screenshotName = screenshotPath.substring(screenshotPath.lastIndexOf('/') + 1);
-                html.append(String.format(
-                    "<div class=\"screenshot-item\">\n" +
-                    "<p class=\"screenshot-label\">%s</p>\n" +
-                    "<img src=\"%s\" alt=\"%s\" class=\"screenshot\" onclick=\"openImageModal(this.src)\">\n" +
-                    "</div>\n",
-                    screenshotName,
-                    relativePath,
-                    screenshotName
-                ));
-            }
-            html.append("</div>\n");
-        }
-
-        html.append("</div>\n");
-        html.append("</div>\n");
-        
-        return html.toString();
-    }
-
     private String getHtmlFooter() {
         return "    </div>\n" +
                "    <!-- Image Modal -->\n" +
@@ -286,47 +322,17 @@ public class TestReportGeneratorService {
                   .replace("'", "&#x27;");
     }
 
-    public String generateSummaryReport(List<String> ticketIds) throws IOException {
-        // Implementation for generating a summary report across multiple tickets
-        StringBuilder html = new StringBuilder();
-        html.append(getHtmlHeader("Multi-Ticket Summary"));
-        
-        // Implementation would collect results from all tickets and create a summary
-        
-        html.append(getHtmlFooter());
-        
-        String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
-        String reportPath = REPORTS_BASE_DIR + "/summary_" + timestamp + ".html";
-        
-        // Create directory if needed
-        Path dirPath = Paths.get(REPORTS_BASE_DIR);
-        Files.createDirectories(dirPath);
-        
-        try (FileWriter writer = new FileWriter(reportPath)) {
-            writer.write(html.toString());
-        }
-        
-        return reportPath;
-    }
-
     private String convertToRelativePath(String absolutePath) {
-        // Convert absolute screenshot path to web URL using the static file controller
-        // Path format: test-reports/screenshots/{ticketId}/{testCaseId}/{timestamp}/{filename}
-        // Convert to: /static/screenshots/{ticketId}/{testCaseId}/{timestamp}/{filename}
-        
         if (absolutePath.contains("screenshots/")) {
-            // Extract the path after "screenshots/"
             String screenshotsPath = absolutePath.substring(absolutePath.indexOf("screenshots/") + "screenshots/".length());
             return "/static/screenshots/" + screenshotsPath;
         }
         
-        // If it doesn't contain screenshots, try to extract test-reports part
         if (absolutePath.startsWith("test-reports/screenshots/")) {
             String screenshotsPath = absolutePath.substring("test-reports/screenshots/".length());
             return "/static/screenshots/" + screenshotsPath;
         }
         
-        // Fallback: return the original path
         return absolutePath;
     }
 } 

@@ -1,27 +1,15 @@
 package com.testcasesgenerator.generator.Controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.testcasesgenerator.generator.Model.AutomationScript;
 import com.testcasesgenerator.generator.Model.TestExecutionResult;
-import com.testcasesgenerator.generator.Services.AutomationScriptGeneratorService;
-import com.testcasesgenerator.generator.Services.ExcelService;
-import com.testcasesgenerator.generator.Services.JiraService;
-import com.testcasesgenerator.generator.Services.TestExecutionService;
-import com.testcasesgenerator.generator.Services.TestReportGeneratorService;
-import com.testcasesgenerator.generator.Services.ToqanAiService;
-import com.testcasesgenerator.generator.Repository.TestExecutionResultRepository;
+import com.testcasesgenerator.generator.Services.*;
+import com.testcasesgenerator.generator.Services.SmartTestCaseGeneratorService.TestCase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/ai-agent")
@@ -44,87 +32,107 @@ public class AIAgentController {
     private TestReportGeneratorService testReportGeneratorService;
 
     @Autowired
-    private TestExecutionResultRepository testExecutionResultRepository;
+    private WebsiteAnalyzerService websiteAnalyzerService;
 
     @Autowired
-    private ExcelService excelService;
+    private SmartTestCaseGeneratorService smartTestCaseGeneratorService;
 
-    @PostMapping("/generate-automation-scripts")
-    public ObjectNode generateAutomationScripts(@RequestBody AutomationRequest request) {
+    @PostMapping("/analyze-website")
+    public ObjectNode analyzeWebsite(@RequestBody WebsiteAnalysisRequest request) {
         ObjectNode response = JsonNodeFactory.instance.objectNode();
         
         try {
-            // Generate automation scripts from test cases
-            List<AutomationScript> scripts = automationScriptGeneratorService.generateAutomationScripts(
-                request.getTicketId(),
-                request.getTestCasesContent(),
-                request.getBaseUrl(),
-                request.getScriptLanguage()
-            );
-
+            var elements = websiteAnalyzerService.analyzeWebsite(request.getBaseUrl());
+            
             response.put("success", true);
-            response.put("message", "Generated " + scripts.size() + " automation scripts");
-            response.put("scriptsGenerated", scripts.size());
-            response.put("ticketId", request.getTicketId());
-
+            response.put("message", "Website analysis completed successfully");
+            response.put("elementsFound", elements.size());
+            
+            // Add element types summary
+            var elementTypes = JsonNodeFactory.instance.objectNode();
+            elements.forEach(element -> {
+                String type = element.getElementType();
+                elementTypes.put(
+                    type, 
+                    elementTypes.has(type) ? elementTypes.get(type).asInt() + 1 : 1
+                );
+            });
+            response.set("elementTypes", elementTypes);
+            
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", e.getMessage());
         }
-
+        
         return response;
     }
 
-    @PostMapping("/execute-automation-scripts")
-    public ObjectNode executeAutomationScripts(@RequestParam String ticketId) {
+    @PostMapping("/generate-smart-test-cases")
+    public ObjectNode generateSmartTestCases(@RequestBody SmartTestCaseRequest request) {
         ObjectNode response = JsonNodeFactory.instance.objectNode();
         
         try {
-            // Execute all automation scripts for the ticket
-            List<TestExecutionResult> results = testExecutionService.executeAllScriptsForTicket(ticketId);
+            List<TestCase> testCases = smartTestCaseGeneratorService.generateSmartTestCases(
+                request.getBaseUrl(),
+                request.getTicketId()
+            );
+            
+            response.put("success", true);
+            response.put("message", "Generated " + testCases.size() + " smart test cases");
+            response.put("testCasesGenerated", testCases.size());
+            response.put("ticketId", request.getTicketId());
+            
+        } catch (Exception e) {
+            response.put("success", false);
+            response.put("error", e.getMessage());
+        }
+        
+        return response;
+    }
 
+    @PostMapping("/execute-smart-test-cases")
+    public ObjectNode executeSmartTestCases(@RequestBody SmartTestExecutionRequest request) {
+        ObjectNode response = JsonNodeFactory.instance.objectNode();
+        
+        try {
+            // Generate test cases
+            List<TestCase> testCases = smartTestCaseGeneratorService.generateSmartTestCases(
+                request.getBaseUrl(),
+                request.getTicketId()
+            );
+            
+            // Execute each test case
+            List<TestExecutionResult> results = testCases.stream()
+                .map(testCase -> testExecutionService.executeSmartTestCase(
+                    testCase,
+                    request.getBaseUrl(),
+                    "test-reports/" + request.getTicketId()
+                ))
+                .toList();
+            
+            // Generate test report
+            String reportPath = testReportGeneratorService.generateTestReport(request.getTicketId());
+            
             // Calculate statistics
             long totalTests = results.size();
             long passedTests = results.stream().filter(r -> "PASSED".equals(r.getExecutionStatus())).count();
             long failedTests = results.stream().filter(r -> "FAILED".equals(r.getExecutionStatus())).count();
             long errorTests = results.stream().filter(r -> "ERROR".equals(r.getExecutionStatus())).count();
-
+            
             response.put("success", true);
-            response.put("message", "Executed " + totalTests + " automation scripts");
-            response.put("ticketId", ticketId);
+            response.put("message", "Smart test execution completed");
+            response.put("ticketId", request.getTicketId());
             response.put("totalTests", totalTests);
             response.put("passedTests", passedTests);
             response.put("failedTests", failedTests);
             response.put("errorTests", errorTests);
-            response.put("passRate", totalTests > 0 ? (double) passedTests / totalTests * 100 : 0);
-
-        } catch (Exception e) {
-            response.put("success", false);
-            response.put("error", e.getMessage());
-        }
-
-        return response;
-    }
-
-    @GetMapping("/generate-test-report")
-    public ObjectNode generateTestReport(@RequestParam String ticketId) {
-        ObjectNode response = JsonNodeFactory.instance.objectNode();
-        
-        try {
-            // Generate comprehensive test report
-            String reportPath = testReportGeneratorService.generateTestReport(ticketId);
-
-            response.put("success", true);
-            response.put("message", "Test report generated successfully");
-            response.put("ticketId", ticketId);
             response.put("reportPath", reportPath);
-            response.put("reportUrl", "/api/ai-agent/view-report?reportPath=" + reportPath);
-
+            
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", e.getMessage());
         }
-
+        
         return response;
     }
 
@@ -133,146 +141,95 @@ public class AIAgentController {
         ObjectNode response = JsonNodeFactory.instance.objectNode();
         
         try {
-            // Step 1: Fetch Jira ticket details
-            var issue = jiraService.fetchJiraTicket(request.getTicketId());
-            String title = issue.getSummary();
-            String description = issue.getDescription();
-
-            // Step 2: Generate test cases using AI
-            String testCases = toqanAiService.generateTestCasesWithToqanAi(title, description);
+            // Step 1: Analyze website
+            var elements = websiteAnalyzerService.analyzeWebsite(request.getBaseUrl());
             
-            // Step 3: Generate automation scripts
-            List<AutomationScript> scripts = automationScriptGeneratorService.generateAutomationScripts(
-                request.getTicketId(),
-                testCases,
+            // Step 2: Generate smart test cases
+            List<TestCase> testCases = smartTestCaseGeneratorService.generateSmartTestCases(
                 request.getBaseUrl(),
-                request.getScriptLanguage()
+                request.getTicketId()
             );
-
-            // Step 4: Execute automation scripts
-            List<TestExecutionResult> results = testExecutionService.executeAllScriptsForTicket(request.getTicketId(), request.getHeadless());
-
-            // Step 5: Generate test report
+            
+            // Step 3: Execute test cases
+            List<TestExecutionResult> results = testCases.stream()
+                .map(testCase -> testExecutionService.executeSmartTestCase(
+                    testCase,
+                    request.getBaseUrl(),
+                    "test-reports/" + request.getTicketId()
+                ))
+                .toList();
+            
+            // Step 4: Generate test report
             String reportPath = testReportGeneratorService.generateTestReport(request.getTicketId());
-
-            // Calculate final statistics
-            long totalTests = results.size();
-            long passedTests = results.stream().filter(r -> "PASSED".equals(r.getExecutionStatus())).count();
-            long failedTests = results.stream().filter(r -> "FAILED".equals(r.getExecutionStatus())).count();
-            long errorTests = results.stream().filter(r -> "ERROR".equals(r.getExecutionStatus())).count();
-
-            response.put("success", true);
-            response.put("message", "AI Agent workflow completed successfully");
-            response.put("ticketId", request.getTicketId());
-            response.put("testCasesGenerated", true);
-            response.put("scriptsGenerated", scripts.size());
-            response.put("testsExecuted", totalTests);
-            response.put("passedTests", passedTests);
-            response.put("failedTests", failedTests);
-            response.put("errorTests", errorTests);
-            response.put("passRate", totalTests > 0 ? (double) passedTests / totalTests * 100 : 0);
-            response.put("reportPath", reportPath);
-            response.put("reportUrl", "/api/ai-agent/view-report?reportPath=" + reportPath);
-
-        } catch (Exception e) {
-            response.put("success", false);
-            response.put("error", e.getMessage());
-            e.printStackTrace();
-        }
-
-        return response;
-    }
-
-    @GetMapping("/execution-status")
-    public ObjectNode getExecutionStatus(@RequestParam String ticketId) {
-        ObjectNode response = JsonNodeFactory.instance.objectNode();
-        
-        try {
-            // Get execution results for the ticket
-            List<TestExecutionResult> results = testExecutionResultRepository.findByTicketId(ticketId);
-
-            if (results.isEmpty()) {
-                response.put("success", true);
-                response.put("status", "NO_EXECUTIONS");
-                response.put("message", "No test executions found for this ticket");
-                return response;
-            }
-
+            
             // Calculate statistics
             long totalTests = results.size();
             long passedTests = results.stream().filter(r -> "PASSED".equals(r.getExecutionStatus())).count();
             long failedTests = results.stream().filter(r -> "FAILED".equals(r.getExecutionStatus())).count();
             long errorTests = results.stream().filter(r -> "ERROR".equals(r.getExecutionStatus())).count();
-            long runningTests = results.stream().filter(r -> "RUNNING".equals(r.getExecutionStatus())).count();
-
-            String overallStatus = runningTests > 0 ? "RUNNING" : 
-                                 (errorTests > 0 || failedTests > 0) ? "COMPLETED_WITH_ISSUES" : "COMPLETED_SUCCESS";
-
+            
             response.put("success", true);
-            response.put("ticketId", ticketId);
-            response.put("status", overallStatus);
+            response.put("message", "AI Agent workflow completed successfully");
+            response.put("ticketId", request.getTicketId());
+            response.put("elementsAnalyzed", elements.size());
+            response.put("testCasesGenerated", testCases.size());
             response.put("totalTests", totalTests);
             response.put("passedTests", passedTests);
             response.put("failedTests", failedTests);
             response.put("errorTests", errorTests);
-            response.put("runningTests", runningTests);
-            response.put("passRate", totalTests > 0 ? (double) passedTests / totalTests * 100 : 0);
-
+            response.put("reportPath", reportPath);
+            
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", e.getMessage());
         }
-
+        
         return response;
     }
 
-    @GetMapping("/view-report")
-    public String viewReport(@RequestParam String reportPath) {
-        try {
-            return java.nio.file.Files.readString(java.nio.file.Paths.get(reportPath));
-        } catch (Exception e) {
-            return "<html><body><h1>Error loading report</h1><p>" + e.getMessage() + "</p></body></html>";
-        }
-    }
-
-    // Inner classes for request DTOs
-    public static class AutomationRequest {
-        private String ticketId;
-        private String testCasesContent;
+    // Request classes
+    public static class WebsiteAnalysisRequest {
         private String baseUrl;
-        private String scriptLanguage = "JAVA_SELENIUM"; // Default
-
-        // Getters and setters
-        public String getTicketId() { return ticketId; }
-        public void setTicketId(String ticketId) { this.ticketId = ticketId; }
-        
-        public String getTestCasesContent() { return testCasesContent; }
-        public void setTestCasesContent(String testCasesContent) { this.testCasesContent = testCasesContent; }
-        
         public String getBaseUrl() { return baseUrl; }
         public void setBaseUrl(String baseUrl) { this.baseUrl = baseUrl; }
+    }
+
+    public static class SmartTestCaseRequest {
+        private String ticketId;
+        private String baseUrl;
         
-        public String getScriptLanguage() { return scriptLanguage; }
-        public void setScriptLanguage(String scriptLanguage) { this.scriptLanguage = scriptLanguage; }
+        public String getTicketId() { return ticketId; }
+        public void setTicketId(String ticketId) { this.ticketId = ticketId; }
+        public String getBaseUrl() { return baseUrl; }
+        public void setBaseUrl(String baseUrl) { this.baseUrl = baseUrl; }
+    }
+
+    public static class SmartTestExecutionRequest {
+        private String ticketId;
+        private String baseUrl;
+        private Boolean headless;
+        
+        public String getTicketId() { return ticketId; }
+        public void setTicketId(String ticketId) { this.ticketId = ticketId; }
+        public String getBaseUrl() { return baseUrl; }
+        public void setBaseUrl(String baseUrl) { this.baseUrl = baseUrl; }
+        public Boolean getHeadless() { return headless; }
+        public void setHeadless(Boolean headless) { this.headless = headless; }
     }
 
     public static class CompleteWorkflowRequest {
         private String ticketId;
         private String baseUrl;
-        private String scriptLanguage = "JAVA_SELENIUM"; // Default
-        private Boolean headless; // null means use default from application.properties
-
-        // Getters and setters
+        private Boolean headless;
+        private String scriptLanguage;
+        
         public String getTicketId() { return ticketId; }
         public void setTicketId(String ticketId) { this.ticketId = ticketId; }
-        
         public String getBaseUrl() { return baseUrl; }
         public void setBaseUrl(String baseUrl) { this.baseUrl = baseUrl; }
-        
-        public String getScriptLanguage() { return scriptLanguage; }
-        public void setScriptLanguage(String scriptLanguage) { this.scriptLanguage = scriptLanguage; }
-        
         public Boolean getHeadless() { return headless; }
         public void setHeadless(Boolean headless) { this.headless = headless; }
+        public String getScriptLanguage() { return scriptLanguage; }
+        public void setScriptLanguage(String scriptLanguage) { this.scriptLanguage = scriptLanguage; }
     }
 } 

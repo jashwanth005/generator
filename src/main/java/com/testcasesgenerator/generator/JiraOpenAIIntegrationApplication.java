@@ -23,8 +23,8 @@ public class JiraOpenAIIntegrationApplication implements CommandLineRunner {
     @Autowired
     private JiraService jiraService;
     
-    @Autowired
-    private OpenAIService openAIService;
+    // @Autowired
+    // private OpenAIService openAIService;
     @Autowired
     private ExcelService excelService;
     @Autowired
@@ -57,8 +57,8 @@ public class JiraOpenAIIntegrationApplication implements CommandLineRunner {
 
 
         
-       String testCases = openAIService.generateTestCasesWithOpenAI(title, description);
-       excelService.saveTestCasesToExcel(testCases, "test_cases.xlsx");
+    //    String testCases = openAIService.generateTestCasesWithOpenAI(title, description);
+    //    excelService.saveTestCasesToExcel(testCases, "test_cases.xlsx");
     }
 }
 

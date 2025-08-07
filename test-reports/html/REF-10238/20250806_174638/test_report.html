@@ -1,0 +1,3695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Automation Report - REF-10238</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .summary { display: flex; gap: 20px; margin-bottom: 30px; }
+        .summary-card { background: #007acc; color: white; padding: 20px; border-radius: 8px; text-align: center; flex: 1; }
+        .summary-card.passed { background: #4CAF50; }
+        .summary-card.failed { background: #f44336; }
+        .summary-card.error { background: #ff9800; }
+        .test-case { border: 1px solid #ddd; margin-bottom: 20px; }
+        .test-case-header { background: #f8f9fa; padding: 15px; cursor: pointer; }
+        .test-case-content { padding: 20px; display: none; }
+        .test-case-content.show { display: block; }
+        .status-badge { padding: 4px 12px; border-radius: 20px; color: white; }
+        .status-passed { background: #4CAF50; }
+        .status-failed { background: #f44336; }
+        .status-error { background: #ff9800; }
+        .test-step { border: 1px solid #eee; margin: 10px 0; padding: 15px; }
+        .step-header { display: flex; justify-content: space-between; align-items: center; }
+        .step-details { margin-top: 10px; }
+        .error-message { color: #f44336; }
+        .screenshots-container { display: flex; flex-wrap: wrap; gap: 15px; margin: 15px 0; }
+        .screenshot-item { text-align: center; margin-top: 15px; }
+        .screenshot-label { font-size: 12px; color: #666; margin-bottom: 5px; }
+        .screenshot { max-width: 300px; height: auto; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+        .screenshot:hover { transform: scale(1.05); border-color: #007acc; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 1200px; padding: 20px; }
+        .close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: #bbb; }
+    </style>
+    <script>
+        function toggleTestCase(element) {
+            const content = element.nextElementSibling;
+            content.classList.toggle('show');
+        }
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = src;
+        }
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Test Automation Report</h1>
+            <div>Ticket ID: REF-10238 | Generated: 2025-08-06 17:46:38</div>
+        </div>
+<div class="summary">
+    <div class="summary-card">
+        <h3>95</h3>
+        <p>Total Tests</p>
+    </div>
+    <div class="summary-card passed">
+        <h3>8</h3>
+        <p>Passed</p>
+    </div>
+    <div class="summary-card failed">
+        <h3>60</h3>
+        <p>Failed</p>
+    </div>
+    <div class="summary-card error">
+        <h3>27</h3>
+        <p>Errors</p>
+    </div>
+    <div class="summary-card">
+        <h3>8.4%</h3>
+        <p>Pass Rate</p>
+    </div>
+</div>
+<div class="test-results">
+<h2>Test Execution Details</h2>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_form_positive_d5984c33</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 13243ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:15</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:28</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Enter valid data</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Data should be entered successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (00c0dc59d515829092018a414b83726b)] -&gt; name: sca_esv] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54378}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:54378/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 00c0dc59d515829092018a414b83726b</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (00c0dc59d515829092018a414b83726b)] -&gt; name: sca_esv] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54378}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:54378/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 00c0dc59d515829092018a414b83726b</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_enter_valid_data_20250806_172227_939.png" alt="step_1_enter_valid_data_20250806_172227_939.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_8ea136ba</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 2444ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:28</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:31</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172230_541.png" alt="step_1_click_navigation_element_20250806_172230_541.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_0ef16ca6</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 5789ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:31</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:37</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172236_422.png" alt="step_1_click_navigation_element_20250806_172236_422.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_b3bdf95f</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 2763ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:37</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:39</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172239_281.png" alt="step_1_click_navigation_element_20250806_172239_281.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_bc1922ca</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 2919ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:39</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:42</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172242_291.png" alt="step_1_click_navigation_element_20250806_172242_291.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_c060d625</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 2407ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:42</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:45</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172244_789.png" alt="step_1_click_navigation_element_20250806_172244_789.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_f52c9fdf</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 3089ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:45</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:48</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172247_968.png" alt="step_1_click_navigation_element_20250806_172247_968.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_7ef0febd</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 3570ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:48</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:52</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172251_633.png" alt="step_1_click_navigation_element_20250806_172251_633.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_e5ea8e07</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 4081ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:52</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:22:56</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172255_812.png" alt="step_1_click_navigation_element_20250806_172255_812.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_e5dd0370</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 3675ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:22:56</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:00</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172259_580.png" alt="step_1_click_navigation_element_20250806_172259_580.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_2dd7098f</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 5210ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:00</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:05</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172304_883.png" alt="step_1_click_navigation_element_20250806_172304_883.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_7f52c890</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 3631ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:09</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172308_605.png" alt="step_1_click_navigation_element_20250806_172308_605.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_522eecce</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 3448ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:09</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:12</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172312_147.png" alt="step_1_click_navigation_element_20250806_172312_147.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_ea2590ce</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 3520ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:12</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:16</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172315_758.png" alt="step_1_click_navigation_element_20250806_172315_758.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_54d167e7</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 3575ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:16</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:20</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172319_426.png" alt="step_1_click_navigation_element_20250806_172319_426.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_4e471648</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 3971ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:20</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:24</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172323_487.png" alt="step_1_click_navigation_element_20250806_172323_487.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_a771ae9a</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 10295ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:24</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:34</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172333_877.png" alt="step_1_click_navigation_element_20250806_172333_877.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_8ba3b7ec</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 5056ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:34</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:39</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172339_055.png" alt="step_1_click_navigation_element_20250806_172339_055.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_a94971a6</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 4974ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:39</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:44</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172344_146.png" alt="step_1_click_navigation_element_20250806_172344_146.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_14e10a26</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 4572ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:44</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:49</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172348_824.png" alt="step_1_click_navigation_element_20250806_172348_824.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_c83879b8</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 5707ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:49</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:23:55</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172354_642.png" alt="step_1_click_navigation_element_20250806_172354_642.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_58819a69</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 13717ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:23:55</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:24:09</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (3dbbe223581d47f30717aebf7be0f0c1)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[1]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55113}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55113/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3dbbe223581d47f30717aebf7be0f0c1</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (3dbbe223581d47f30717aebf7be0f0c1)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[1]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55113}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55113/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3dbbe223581d47f30717aebf7be0f0c1</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172408_454.png" alt="step_1_click_navigation_element_20250806_172408_454.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_1cfda8a4</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 12857ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:24:09</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:24:22</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (cfd643692bf5360a0860475853c46e6e)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[2]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55181}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55181/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cfd643692bf5360a0860475853c46e6e</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (cfd643692bf5360a0860475853c46e6e)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[2]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55181}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55181/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cfd643692bf5360a0860475853c46e6e</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172421_411.png" alt="step_1_click_navigation_element_20250806_172421_411.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_0e326f5e</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 12606ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:24:22</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:24:34</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (add94aac90fcc65297cf2865cf129f9b)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[3]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55253}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55253/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: add94aac90fcc65297cf2865cf129f9b</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (add94aac90fcc65297cf2865cf129f9b)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[3]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55253}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55253/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: add94aac90fcc65297cf2865cf129f9b</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172434_123.png" alt="step_1_click_navigation_element_20250806_172434_123.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_e217ea45</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 12942ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:24:34</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:24:47</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (5f612a9058c3bad1fb9e432d11ffe570)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[4]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55321}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55321/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f612a9058c3bad1fb9e432d11ffe570</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (5f612a9058c3bad1fb9e432d11ffe570)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[4]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55321}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55321/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5f612a9058c3bad1fb9e432d11ffe570</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172447_167.png" alt="step_1_click_navigation_element_20250806_172447_167.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_40150f93</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 13720ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:24:47</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:25:01</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (0d36fd1ce87a4421e0a8b0121cc6ae0f)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[5]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55388}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55388/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0d36fd1ce87a4421e0a8b0121cc6ae0f</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on mac (0d36fd1ce87a4421e0a8b0121cc6ae0f)] -&gt; xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[5]/div[1]/a[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55388}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55388/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0d36fd1ce87a4421e0a8b0121cc6ae0f</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172500_984.png" alt="step_1_click_navigation_element_20250806_172500_984.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_form_positive_25b45424</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 13230ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:28:25</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:28:39</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Enter valid data</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Data should be entered successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: By.name: sca_esv (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56326}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:56326/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 17089f8678a3f2fee1d53a808da4bb2f</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.name: sca_esv (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56326}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:56326/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 17089f8678a3f2fee1d53a808da4bb2f</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_enter_valid_data_20250806_172838_701.png" alt="step_1_enter_valid_data_20250806_172838_701.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_2e5f5b3e</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 4468ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:28:39</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:28:43</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172843_309.png" alt="step_1_click_navigation_element_20250806_172843_309.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_f59feb60</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14404ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:28:43</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:28:58</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172857_810.png" alt="step_1_click_navigation_element_20250806_172857_810.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_0e462590</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 4168ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:28:58</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:29:02</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172902_080.png" alt="step_1_click_navigation_element_20250806_172902_080.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_9783c87b</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14495ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:29:02</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:29:17</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172916_659.png" alt="step_1_click_navigation_element_20250806_172916_659.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_88529d0d</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14857ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:29:17</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:29:32</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172931_619.png" alt="step_1_click_navigation_element_20250806_172931_619.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_4d471a32</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 4253ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:29:32</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:29:36</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172935_973.png" alt="step_1_click_navigation_element_20250806_172935_973.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_79ed6f72</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15859ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:29:36</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:29:52</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_172951_927.png" alt="step_1_click_navigation_element_20250806_172951_927.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_39c786b3</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 16844ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:29:52</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:30:09</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173008_865.png" alt="step_1_click_navigation_element_20250806_173008_865.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_7e594b1c</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15970ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:30:09</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:30:25</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173024_939.png" alt="step_1_click_navigation_element_20250806_173024_939.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_220df17d</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15703ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:30:25</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:30:41</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173040_749.png" alt="step_1_click_navigation_element_20250806_173040_749.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_d9060579</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15980ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:30:41</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:30:57</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173056_827.png" alt="step_1_click_navigation_element_20250806_173056_827.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_51380236</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15812ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:30:57</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:31:13</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173112_734.png" alt="step_1_click_navigation_element_20250806_173112_734.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_651918ba</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15892ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:31:13</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:31:29</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173128_757.png" alt="step_1_click_navigation_element_20250806_173128_757.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_3dc6adc9</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15524ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:31:29</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:31:44</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173144_384.png" alt="step_1_click_navigation_element_20250806_173144_384.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_7a6336f3</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15866ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:31:44</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:32:00</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173200_347.png" alt="step_1_click_navigation_element_20250806_173200_347.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_494aa876</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14253ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:32:00</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:32:15</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173214_698.png" alt="step_1_click_navigation_element_20250806_173214_698.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_fa6a6c9f</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15006ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:32:15</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:32:30</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173229_813.png" alt="step_1_click_navigation_element_20250806_173229_813.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_6c498296</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14019ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:32:30</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:32:44</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173243_936.png" alt="step_1_click_navigation_element_20250806_173243_936.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_b1c6a8ce</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14311ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:32:44</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:32:58</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173258_356.png" alt="step_1_click_navigation_element_20250806_173258_356.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_abce437d</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14849ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:32:58</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:33:13</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173313_308.png" alt="step_1_click_navigation_element_20250806_173313_308.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_8f9f7818</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 12947ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:33:13</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:33:26</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[1]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57853}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:57853/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b7cd0a177619fafdf910266b908bedad</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[1]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57853}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:57853/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b7cd0a177619fafdf910266b908bedad</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173326_362.png" alt="step_1_click_navigation_element_20250806_173326_362.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_e4be3cf0</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 12945ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:33:26</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:33:40</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[2]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57919}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:57919/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 81842e6c87e4dfa3fce1b6a5389456f8</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[2]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57919}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:57919/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 81842e6c87e4dfa3fce1b6a5389456f8</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173339_410.png" alt="step_1_click_navigation_element_20250806_173339_410.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_995e14a7</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 13456ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:33:40</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:33:53</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[3]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58002}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58002/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c4596f6f870a4c1e2531fcca6498e6b9</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[3]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58002}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58002/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c4596f6f870a4c1e2531fcca6498e6b9</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173352_964.png" alt="step_1_click_navigation_element_20250806_173352_964.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_eb9bdbe9</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 12824ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:33:53</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:34:06</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[4]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58073}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58073/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4f471879fdcfd9ed5d3c048e6d829f6c</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[4]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58073}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58073/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4f471879fdcfd9ed5d3c048e6d829f6c</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173405_890.png" alt="step_1_click_navigation_element_20250806_173405_890.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_dcec0858</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 12912ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:34:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:34:19</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[5]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58134}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58134/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4b9c74be90d7c28cc2a7886786a75b01</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.xpath: /html/body/div[1]/div[6]/div[1]/div[2]/div[2]/span[1]/span[1]/g-popup[1]/div[2]/g-menu[1]/g-menu-item[5]/div[1]/a[1] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58134}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58134/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4b9c74be90d7c28cc2a7886786a75b01</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_173418_899.png" alt="step_1_click_navigation_element_20250806_173418_899.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_form_positive_e89ee9ac</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 13385ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:40:48</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:41:02</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Enter valid data</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Data should be entered successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: By.name: sca_esv (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59866}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:59866/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5b52d8e9e99cae1a922d7cef4cef347c</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.name: sca_esv (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59866}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:59866/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5b52d8e9e99cae1a922d7cef4cef347c</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_enter_valid_data_20250806_174101_869.png" alt="step_1_enter_valid_data_20250806_174101_869.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_form_positive_51bdb39c</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 13213ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:41:02</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:41:15</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Enter valid data</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Data should be entered successfully</p>
+<p><strong>Actual:</strong> Error: Expected condition failed: waiting for element to be clickable: By.name: csi (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59937}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:59937/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40a9cc7d30ca5cee9e266bec2a2805e6</p>
+<p class="error-message"><strong>Error:</strong> Expected condition failed: waiting for element to be clickable: By.name: csi (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59937}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:59937/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40a9cc7d30ca5cee9e266bec2a2805e6</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_enter_valid_data_20250806_174115_276.png" alt="step_1_enter_valid_data_20250806_174115_276.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_39906840</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 4674ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:41:15</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:41:20</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174120_050.png" alt="step_1_click_navigation_element_20250806_174120_050.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_566826e2</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14381ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:41:20</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:41:35</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174134_523.png" alt="step_1_click_navigation_element_20250806_174134_523.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_b7c100d2</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 3960ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:41:35</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:41:39</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174138_583.png" alt="step_1_click_navigation_element_20250806_174138_583.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_844688c4</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14529ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:41:39</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:41:53</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174153_202.png" alt="step_1_click_navigation_element_20250806_174153_202.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_46bfccef</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 14039ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:41:53</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:42:07</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174207_345.png" alt="step_1_click_navigation_element_20250806_174207_345.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_c524fbc8</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 4244ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:42:07</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:42:12</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174211_685.png" alt="step_1_click_navigation_element_20250806_174211_685.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_81ad3221</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15558ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:42:12</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:42:27</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174227_334.png" alt="step_1_click_navigation_element_20250806_174227_334.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_10b8bb4c</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15387ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:42:27</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:42:43</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174242_820.png" alt="step_1_click_navigation_element_20250806_174242_820.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_6b34fe30</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15115ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:42:43</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:42:58</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174258_037.png" alt="step_1_click_navigation_element_20250806_174258_037.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_a1ae9ebd</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15920ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:42:58</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:43:14</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174314_066.png" alt="step_1_click_navigation_element_20250806_174314_066.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_46cc082f</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15776ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:43:14</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:43:30</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174329_939.png" alt="step_1_click_navigation_element_20250806_174329_939.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_a7cb6e56</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15841ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:43:30</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:43:46</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10238/step_1_click_navigation_element_20250806_174345_891.png" alt="step_1_click_navigation_element_20250806_174345_891.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_form_positive_022ab78a</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 4622ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:43:50</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:43:55</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Enter valid data</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Data should be entered successfully</p>
+<p><strong>Actual:</strong> Error: Error communicating with the remote browser. It may have died.
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [cb99f0cd06252714fe551e98de120e81, findElement [using, value]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60827}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:60827/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cb99f0cd06252714fe551e98de120e81</p>
+<p class="error-message"><strong>Error:</strong> Error communicating with the remote browser. It may have died.
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [cb99f0cd06252714fe551e98de120e81, findElement [using, value]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:60827}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:60827/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cb99f0cd06252714fe551e98de120e81</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_1ea117da</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 8640ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:43:46</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:43:55</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_form_positive_0f4ad6ae</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 2294ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:33</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:35</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>Error communicating with the remote browser. It may have died.
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [167ef6316a936f1fb6100be613b198d0, get [url]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61601}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61601/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 167ef6316a936f1fb6100be613b198d0</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: Error communicating with the remote browser. It may have died.
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [167ef6316a936f1fb6100be613b198d0, get [url]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61601}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61601/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 167ef6316a936f1fb6100be613b198d0</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_form_positive_ca37c278</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 2137ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:35</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>Error communicating with the remote browser. It may have died.
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [08ffab1065c0c3326f4295ff53901a0e, get [url]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61627}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61627/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 08ffab1065c0c3326f4295ff53901a0e</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: Error communicating with the remote browser. It may have died.
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [08ffab1065c0c3326f4295ff53901a0e, get [url]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61627}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:61627/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 08ffab1065c0c3326f4295ff53901a0e</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_27f82872</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 28ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_b9da9589</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 70ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_6c6df2b6</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 30ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_a4da4428</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 19ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_09a52dbf</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_0e459a65</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 18ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_aed13ec5</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 25ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_8016e77d</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_5201a734</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 18ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_b23ac80e</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_678f5115</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_3a9d9ea0</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 14ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_877220d3</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 14ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_2ed4566f</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 14ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_8890ea3a</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_16f42d73</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 14ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_055628ae</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_3f9c5b90</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_7715bc8c</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 14ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_13adc7a6</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 14ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_faf83d51</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 14ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_51d9b76b</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 13ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_f6c48f12</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 14ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_dc51191c</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 13ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10238_navigation_60a1afdb</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-06 17:46:38</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeImageModal()">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+</body>
+</html>

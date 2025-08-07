@@ -1,85 +1,63 @@
 package com.testcasesgenerator.generator.Model;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.CascadeType;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "test_execution_results")
 public class TestExecutionResult {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "ticket_id", nullable = false)
+    @Column(nullable = false)
     private String ticketId;
 
-    @Column(name = "test_case_id", nullable = false)
+    @Column(nullable = false)
     private String testCaseId;
 
-    @Column(name = "automation_script_id", nullable = false)
-    private Long automationScriptId;
+    @Column(nullable = false)
+    private String executionStatus; // RUNNING, PASSED, FAILED, ERROR
 
-    @Column(name = "execution_status", nullable = false)
-    private String executionStatus; // PASSED, FAILED, SKIPPED, ERROR
+    @Column(nullable = false)
+    private LocalDateTime startTime;
 
-    @Column(name = "execution_start_time", nullable = false)
-    private LocalDateTime executionStartTime;
-
-    @Column(name = "execution_end_time")
-    private LocalDateTime executionEndTime;
-
-    @Column(name = "execution_duration_ms")
+    private LocalDateTime endTime;
     private Long executionDurationMs;
 
-    @Column(name = "error_message", columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String errorMessage;
 
-    @Column(name = "stack_trace", columnDefinition = "TEXT")
-    private String stackTrace;
-
-    @ElementCollection
-    @Column(name = "screenshot_paths", columnDefinition = "TEXT")
-    private List<String> screenshotPaths;
-
-    @ElementCollection
-    @Column(name = "step_results", columnDefinition = "TEXT")
-    private List<String> stepResults; // JSON format for each step result
-
-    @Column(name = "browser_type")
-    private String browserType;
-
-    @Column(name = "browser_version")
-    private String browserVersion;
-
-    @Column(name = "test_environment")
-    private String testEnvironment;
-
-    @Column(name = "report_path")
-    private String reportPath;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "test_execution_result_id")
+    private List<TestStep> executedSteps = new ArrayList<>();
 
     // Default constructor
     public TestExecutionResult() {
+        this.startTime = LocalDateTime.now();
     }
 
     // Constructor with basic fields
-    public TestExecutionResult(String ticketId, String testCaseId, Long automationScriptId, String executionStatus) {
+    public TestExecutionResult(String ticketId, String testCaseId, String executionStatus) {
         this.ticketId = ticketId;
         this.testCaseId = testCaseId;
-        this.automationScriptId = automationScriptId;
         this.executionStatus = executionStatus;
-        this.executionStartTime = LocalDateTime.now();
+        this.startTime = LocalDateTime.now();
     }
 
-    // Getters and Setters
+    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -104,36 +82,32 @@ public class TestExecutionResult {
         this.testCaseId = testCaseId;
     }
 
-    public Long getAutomationScriptId() {
-        return automationScriptId;
-    }
-
-    public void setAutomationScriptId(Long automationScriptId) {
-        this.automationScriptId = automationScriptId;
-    }
-
     public String getExecutionStatus() {
         return executionStatus;
     }
 
     public void setExecutionStatus(String executionStatus) {
         this.executionStatus = executionStatus;
+        if (executionStatus.equals("PASSED") || executionStatus.equals("FAILED") || executionStatus.equals("ERROR")) {
+            this.endTime = LocalDateTime.now();
+            this.executionDurationMs = java.time.Duration.between(startTime, endTime).toMillis();
+        }
     }
 
-    public LocalDateTime getExecutionStartTime() {
-        return executionStartTime;
+    public LocalDateTime getStartTime() {
+        return startTime;
     }
 
-    public void setExecutionStartTime(LocalDateTime executionStartTime) {
-        this.executionStartTime = executionStartTime;
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
     }
 
-    public LocalDateTime getExecutionEndTime() {
-        return executionEndTime;
+    public LocalDateTime getEndTime() {
+        return endTime;
     }
 
-    public void setExecutionEndTime(LocalDateTime executionEndTime) {
-        this.executionEndTime = executionEndTime;
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
     }
 
     public Long getExecutionDurationMs() {
@@ -152,59 +126,18 @@ public class TestExecutionResult {
         this.errorMessage = errorMessage;
     }
 
-    public String getStackTrace() {
-        return stackTrace;
+    public List<TestStep> getExecutedSteps() {
+        return executedSteps;
     }
 
-    public void setStackTrace(String stackTrace) {
-        this.stackTrace = stackTrace;
+    public void setExecutedSteps(List<TestStep> executedSteps) {
+        this.executedSteps = executedSteps;
     }
 
-    public List<String> getScreenshotPaths() {
-        return screenshotPaths;
-    }
-
-    public void setScreenshotPaths(List<String> screenshotPaths) {
-        this.screenshotPaths = screenshotPaths;
-    }
-
-    public List<String> getStepResults() {
-        return stepResults;
-    }
-
-    public void setStepResults(List<String> stepResults) {
-        this.stepResults = stepResults;
-    }
-
-    public String getBrowserType() {
-        return browserType;
-    }
-
-    public void setBrowserType(String browserType) {
-        this.browserType = browserType;
-    }
-
-    public String getBrowserVersion() {
-        return browserVersion;
-    }
-
-    public void setBrowserVersion(String browserVersion) {
-        this.browserVersion = browserVersion;
-    }
-
-    public String getTestEnvironment() {
-        return testEnvironment;
-    }
-
-    public void setTestEnvironment(String testEnvironment) {
-        this.testEnvironment = testEnvironment;
-    }
-
-    public String getReportPath() {
-        return reportPath;
-    }
-
-    public void setReportPath(String reportPath) {
-        this.reportPath = reportPath;
+    public void addExecutedStep(TestStep step) {
+        if (this.executedSteps == null) {
+            this.executedSteps = new ArrayList<>();
+        }
+        this.executedSteps.add(step);
     }
 } 

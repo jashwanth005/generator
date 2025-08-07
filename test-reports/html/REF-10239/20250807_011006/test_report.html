@@ -1,0 +1,3438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Automation Report - REF-10239</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .summary { display: flex; gap: 20px; margin-bottom: 30px; }
+        .summary-card { background: #007acc; color: white; padding: 20px; border-radius: 8px; text-align: center; flex: 1; }
+        .summary-card.passed { background: #4CAF50; }
+        .summary-card.failed { background: #f44336; }
+        .summary-card.error { background: #ff9800; }
+        .test-case { border: 1px solid #ddd; margin-bottom: 20px; }
+        .test-case-header { background: #f8f9fa; padding: 15px; cursor: pointer; }
+        .test-case-content { padding: 20px; display: none; }
+        .test-case-content.show { display: block; }
+        .status-badge { padding: 4px 12px; border-radius: 20px; color: white; }
+        .status-passed { background: #4CAF50; }
+        .status-failed { background: #f44336; }
+        .status-error { background: #ff9800; }
+        .test-step { border: 1px solid #eee; margin: 10px 0; padding: 15px; }
+        .step-header { display: flex; justify-content: space-between; align-items: center; }
+        .step-details { margin-top: 10px; }
+        .error-message { color: #f44336; }
+        .screenshots-container { display: flex; flex-wrap: wrap; gap: 15px; margin: 15px 0; }
+        .screenshot-item { text-align: center; margin-top: 15px; }
+        .screenshot-label { font-size: 12px; color: #666; margin-bottom: 5px; }
+        .screenshot { max-width: 300px; height: auto; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+        .screenshot:hover { transform: scale(1.05); border-color: #007acc; }
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { margin: auto; display: block; width: 80%; max-width: 1200px; padding: 20px; }
+        .close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .close:hover { color: #bbb; }
+    </style>
+    <script>
+        function toggleTestCase(element) {
+            const content = element.nextElementSibling;
+            content.classList.toggle('show');
+        }
+        function openImageModal(src) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = src;
+        }
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Test Automation Report</h1>
+            <div>Ticket ID: REF-10239 | Generated: 2025-08-07 01:10:06</div>
+        </div>
+<div class="summary">
+    <div class="summary-card">
+        <h3>92</h3>
+        <p>Total Tests</p>
+    </div>
+    <div class="summary-card passed">
+        <h3>45</h3>
+        <p>Passed</p>
+    </div>
+    <div class="summary-card failed">
+        <h3>4</h3>
+        <p>Failed</p>
+    </div>
+    <div class="summary-card error">
+        <h3>43</h3>
+        <p>Errors</p>
+    </div>
+    <div class="summary-card">
+        <h3>48.9%</h3>
+        <p>Pass Rate</p>
+    </div>
+</div>
+<div class="test-results">
+<h2>Test Execution Details</h2>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_5e0d733b</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_928ed9d1</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 21ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_9ca7e129</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_c6d7846e</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_59a986e3</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_7082c99d</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 18ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_5a8535f1</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_d394bb03</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_cfaa063a</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 18ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_2521bad7</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 19ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_465b7ae7</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 19ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_fbad395a</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 43ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_d69f1df5</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_92b29a9b</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 19ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_de5a8054</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 21ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_6301b65a</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 20ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_91c8899d</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 19ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_6e93bb6d</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 21ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_90dc5bb4</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_ef260f18</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 24ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_be9fc1e1</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_42ed777f</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_a0c9e0ec</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_b991eba3</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_1102d65d</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_69ff2e8b</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_56c9245d</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_2931b00c</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_e23c4b2c</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 20ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_1271b78e</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 23ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_be1c6bf3</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_ef136cd9</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_2e48d842</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_bab4a42e</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 15ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_d7ecff1f</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_8928d254</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 19ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_71283e26</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 16ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_ba20cbfd</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 22ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_c1848c0f</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 38ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_70c1bbac</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 58ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_49e3791c</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 59ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_4c87873d</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 17ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:06</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>java.lang.InterruptedException</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: java.lang.InterruptedException</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header error" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_7e0646fe</h3>
+<span class="status-badge status-error">ERROR</span>
+<span style="float: right; color: #666;">Duration: 1530ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:10:04</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:05</div>
+</div>
+</div>
+<div class="step-details" style="background: #ffebee;">
+<h4 style="color: #d32f2f;">Error Details</h4>
+<p>Error communicating with the remote browser. It may have died.
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5084ce17b4dbb9e85b3395b33205e5e5, get [url]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51220}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51220/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5084ce17b4dbb9e85b3395b33205e5e5</p>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Unexpected error during test execution</h5>
+<span class="status-badge status-error">ERROR</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Test should execute without errors</p>
+<p><strong>Actual:</strong> Error: Error communicating with the remote browser. It may have died.
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [5084ce17b4dbb9e85b3395b33205e5e5, get [url]]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51220}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51220/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 5084ce17b4dbb9e85b3395b33205e5e5</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_8c45fe63</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 5699ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:09:58</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:10:04</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_7249b355</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6163ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:09:51</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:09:58</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010957_219.png" alt="step_1_click_navigation_element_20250807_010957_219.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_8a159d1b</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 4742ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:09:45</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:09:51</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: element not interactable: element has zero size
+  (Session info: chrome=127.0.6533.89)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9954ba0463699d51c75e687281d56065, clickElement {id=f.FB508D6B478F6665F8230264EC048680.d.A0C566DE75091E889BA6259317563666.e.5}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51098}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51098/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPr...</p>
+<p class="error-message"><strong>Error:</strong> element not interactable: element has zero size
+  (Session info: chrome=127.0.6533.89)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [9954ba0463699d51c75e687281d56065, clickElement {id=f.FB508D6B478F6665F8230264EC048680.d.A0C566DE75091E889BA6259317563666.e.5}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51098}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:51098/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPr...</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010949_926.png" alt="step_1_click_navigation_element_20250807_010949_926.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_60b397e5</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 15570ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:07:56</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:08:13</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Verification failed</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010811_958.png" alt="step_1_click_navigation_element_20250807_010811_958.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_9277459a</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 9312ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:07:46</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:07:56</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010755_238.png" alt="step_1_click_navigation_element_20250807_010755_238.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_7d8cba55</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5596ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:07:39</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:07:46</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010744_805.png" alt="step_1_click_navigation_element_20250807_010744_805.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_966636a6</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5786ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:07:32</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:07:39</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010738_093.png" alt="step_1_click_navigation_element_20250807_010738_093.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_b8b01804</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6895ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:07:24</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:07:32</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010731_178.png" alt="step_1_click_navigation_element_20250807_010731_178.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_0255758d</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 11437ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:07:12</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:07:24</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010723_168.png" alt="step_1_click_navigation_element_20250807_010723_168.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_3050aa19</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6529ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:07:04</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:07:12</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010710_597.png" alt="step_1_click_navigation_element_20250807_010710_597.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_1fed5bc0</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5719ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:06:57</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:07:04</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010702_940.png" alt="step_1_click_navigation_element_20250807_010702_940.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_d9f2844c</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6026ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:06:50</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:06:57</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010656_098.png" alt="step_1_click_navigation_element_20250807_010656_098.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_8608357a</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5848ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:06:43</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:06:50</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010648_935.png" alt="step_1_click_navigation_element_20250807_010648_935.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_1b5297f1</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7007ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:06:35</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:06:43</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010641_963.png" alt="step_1_click_navigation_element_20250807_010641_963.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_2437c78e</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7159ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:06:27</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:06:35</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010633_831.png" alt="step_1_click_navigation_element_20250807_010633_831.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_5f02479b</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7403ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:06:18</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:06:27</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010625_548.png" alt="step_1_click_navigation_element_20250807_010625_548.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_8bf7e1bb</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7115ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:06:10</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:06:18</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010617_016.png" alt="step_1_click_navigation_element_20250807_010617_016.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_93f66e99</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6103ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:06:03</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:06:10</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010608_781.png" alt="step_1_click_navigation_element_20250807_010608_781.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_5982c008</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6178ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:05:55</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:06:03</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010601_554.png" alt="step_1_click_navigation_element_20250807_010601_554.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_2b418983</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6142ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:05:48</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:05:55</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010554_252.png" alt="step_1_click_navigation_element_20250807_010554_252.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_4ae4d263</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7632ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:05:39</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:05:48</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010546_990.png" alt="step_1_click_navigation_element_20250807_010546_990.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_184aeca2</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6208ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:05:32</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:05:39</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010538_243.png" alt="step_1_click_navigation_element_20250807_010538_243.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_398ab250</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7726ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:05:23</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:05:32</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010530_924.png" alt="step_1_click_navigation_element_20250807_010530_924.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_a8c0d25c</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5941ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:05:16</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:05:23</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010522_081.png" alt="step_1_click_navigation_element_20250807_010522_081.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_30d99455</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6073ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:05:09</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:05:16</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010515_014.png" alt="step_1_click_navigation_element_20250807_010515_014.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_2266802f</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6165ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:05:02</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:05:09</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010507_815.png" alt="step_1_click_navigation_element_20250807_010507_815.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_c0426b8b</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6226ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:04:54</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:05:02</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010500_516.png" alt="step_1_click_navigation_element_20250807_010500_516.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_95752777</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 7128ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:04:46</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:04:54</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010453_165.png" alt="step_1_click_navigation_element_20250807_010453_165.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_285eed0c</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6166ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:04:39</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:04:46</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010444_915.png" alt="step_1_click_navigation_element_20250807_010444_915.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_53e5ff37</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6681ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:04:31</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:04:39</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010437_634.png" alt="step_1_click_navigation_element_20250807_010437_634.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_3a8982bc</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6958ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:04:23</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:04:31</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010429_829.png" alt="step_1_click_navigation_element_20250807_010429_829.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_d90de3f7</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6096ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:04:16</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:04:23</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010421_753.png" alt="step_1_click_navigation_element_20250807_010421_753.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_a970104b</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6485ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:04:08</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:04:16</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010414_534.png" alt="step_1_click_navigation_element_20250807_010414_534.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_d9f01aee</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6167ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:04:01</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:04:08</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010406_939.png" alt="step_1_click_navigation_element_20250807_010406_939.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_38c8de9f</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6122ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:03:54</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:04:01</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010359_644.png" alt="step_1_click_navigation_element_20250807_010359_644.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_d2a397e1</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6271ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:03:46</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:03:54</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010352_399.png" alt="step_1_click_navigation_element_20250807_010352_399.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_29f7f7f4</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6829ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:03:38</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:03:46</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010345_001.png" alt="step_1_click_navigation_element_20250807_010345_001.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_3578b734</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6142ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:03:31</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:03:38</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010337_052.png" alt="step_1_click_navigation_element_20250807_010337_052.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_000a7d20</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6343ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:03:23</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:03:31</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010329_793.png" alt="step_1_click_navigation_element_20250807_010329_793.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_7cd1662b</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6334ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:03:16</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:03:23</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010322_324.png" alt="step_1_click_navigation_element_20250807_010322_324.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_33f646d0</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6437ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:03:08</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:03:16</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010314_859.png" alt="step_1_click_navigation_element_20250807_010314_859.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_8e89c1f1</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6188ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:03:01</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:03:08</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010307_304.png" alt="step_1_click_navigation_element_20250807_010307_304.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_29d27b0d</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5621ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:02:54</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:03:01</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010259_997.png" alt="step_1_click_navigation_element_20250807_010259_997.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_7e72a401</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5838ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:02:47</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:02:54</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010253_254.png" alt="step_1_click_navigation_element_20250807_010253_254.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_75d0f289</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6629ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:02:40</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:02:47</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010246_299.png" alt="step_1_click_navigation_element_20250807_010246_299.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_8c5714b6</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 5755ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:02:33</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:02:40</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010238_535.png" alt="step_1_click_navigation_element_20250807_010238_535.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_1e5c5daa</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6074ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:02:26</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:02:33</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010231_653.png" alt="step_1_click_navigation_element_20250807_010231_653.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header passed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_ebf397b1</h3>
+<span class="status-badge status-passed">PASSED</span>
+<span style="float: right; color: #666;">Duration: 6804ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:02:18</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:02:26</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-passed">PASSED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Action completed successfully</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010224_469.png" alt="step_1_click_navigation_element_20250807_010224_469.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="test-case">
+<div class="test-case-header failed" onclick="toggleTestCase(this)">
+<h3>REF-10239_navigation_5fb9837c</h3>
+<span class="status-badge status-failed">FAILED</span>
+<span style="float: right; color: #666;">Duration: 4904ms</span>
+</div>
+<div class="test-case-content">
+<div class="execution-info">
+<div class="info-item">
+<div class="info-label">Start Time</div>
+<div class="info-value">2025-08-07 01:02:12</div>
+</div>
+<div class="info-item">
+<div class="info-label">End Time</div>
+<div class="info-value">2025-08-07 01:02:18</div>
+</div>
+</div>
+<h4>Test Steps</h4>
+<div class="test-steps">
+<div class="test-step">
+<div class="step-header">
+<h5>Step 1: Click navigation element</h5>
+<span class="status-badge status-failed">FAILED</span>
+</div>
+<div class="step-details">
+<p><strong>Expected:</strong> Page should navigate successfully</p>
+<p><strong>Actual:</strong> Error: element not interactable: element has zero size
+  (Session info: chrome=127.0.6533.89)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [eae4a8c3ef2407668ee63fc600aa5a92, clickElement {id=f.C20D3DC94DF1E37DF126A6DDE4A8E3A9.d.A80DF170B3820F7706E65EF48AE497CF.e.5}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65035}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:65035/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPr...</p>
+<p class="error-message"><strong>Error:</strong> element not interactable: element has zero size
+  (Session info: chrome=127.0.6533.89)
+Build info: version: &#x27;4.15.0&#x27;, revision: &#x27;1d14b5521b&#x27;
+System info: os.name: &#x27;Mac OS X&#x27;, os.arch: &#x27;aarch64&#x27;, os.version: &#x27;15.5&#x27;, java.version: &#x27;17.0.15&#x27;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [eae4a8c3ef2407668ee63fc600aa5a92, clickElement {id=f.C20D3DC94DF1E37DF126A6DDE4A8E3A9.d.A80DF170B3820F7706E65EF48AE497CF.e.5}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 127.0.6533.89, chrome: {chromedriverVersion: 127.0.6533.119 (bdef6783a05..., userDataDir: /var/folders/q1/g5mv4xhn757...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65035}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:65035/devtoo..., se:cdpVersion: 127.0.6533.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPr...</p>
+<div class="screenshot-item">
+<p class="screenshot-label">Screenshot</p>
+<img src="test-reports/REF-10239/step_1_click_navigation_element_20250807_010216_524.png" alt="step_1_click_navigation_element_20250807_010216_524.png" class="screenshot" onclick="openImageModal(this.src)">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeImageModal()">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+</body>
+</html>

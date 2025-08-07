@@ -1,111 +1,136 @@
 package com.testcasesgenerator.generator.Model;
 
-import java.time.LocalDateTime;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "test_step")
 public class TestStep {
-    
-    private int stepNumber;
-    private String stepDescription;
-    private String stepAction;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "test_execution_result_id", nullable = false)
+    private TestExecutionResult testExecutionResult;
+
+    @Column(name = "step_number", nullable = false)
+    private Integer stepNumber;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    @Column(columnDefinition = "TEXT")
     private String expectedResult;
+
+    @Column(columnDefinition = "TEXT")
     private String actualResult;
-    private String status; // PASSED, FAILED, SKIPPED
-    private String screenshotPath;
-    private LocalDateTime executionTime;
-    private long executionDurationMs;
+
+    @Column(name = "status", nullable = false)
+    private String status;
+
+    @Column(columnDefinition = "TEXT")
     private String errorMessage;
-    
+
+    @Column(name = "screenshot_path")
+    private String screenshotPath;
+
+    @Column(name = "execution_duration_ms")
+    private Long executionDurationMs;
+
     // Default constructor
     public TestStep() {
     }
-    
-    // Constructor with basic fields
-    public TestStep(int stepNumber, String stepDescription, String stepAction, String expectedResult) {
+
+    // Constructor with fields
+    public TestStep(TestExecutionResult testExecutionResult, Integer stepNumber, String description,
+                   String expectedResult, String actualResult, String status) {
+        this.testExecutionResult = testExecutionResult;
         this.stepNumber = stepNumber;
-        this.stepDescription = stepDescription;
-        this.stepAction = stepAction;
+        this.description = description;
         this.expectedResult = expectedResult;
-        this.executionTime = LocalDateTime.now();
+        this.actualResult = actualResult;
+        this.status = status;
     }
-    
+
     // Getters and Setters
-    public int getStepNumber() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public TestExecutionResult getTestExecutionResult() {
+        return testExecutionResult;
+    }
+
+    public void setTestExecutionResult(TestExecutionResult testExecutionResult) {
+        this.testExecutionResult = testExecutionResult;
+    }
+
+    public Integer getStepNumber() {
         return stepNumber;
     }
-    
-    public void setStepNumber(int stepNumber) {
+
+    public void setStepNumber(Integer stepNumber) {
         this.stepNumber = stepNumber;
     }
-    
-    public String getStepDescription() {
-        return stepDescription;
+
+    public String getDescription() {
+        return description;
     }
-    
-    public void setStepDescription(String stepDescription) {
-        this.stepDescription = stepDescription;
+
+    public void setDescription(String description) {
+        this.description = description;
     }
-    
-    public String getStepAction() {
-        return stepAction;
-    }
-    
-    public void setStepAction(String stepAction) {
-        this.stepAction = stepAction;
-    }
-    
+
     public String getExpectedResult() {
         return expectedResult;
     }
-    
+
     public void setExpectedResult(String expectedResult) {
         this.expectedResult = expectedResult;
     }
-    
+
     public String getActualResult() {
         return actualResult;
     }
-    
+
     public void setActualResult(String actualResult) {
         this.actualResult = actualResult;
     }
-    
+
     public String getStatus() {
         return status;
     }
-    
+
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    public String getScreenshotPath() {
-        return screenshotPath;
-    }
-    
-    public void setScreenshotPath(String screenshotPath) {
-        this.screenshotPath = screenshotPath;
-    }
-    
-    public LocalDateTime getExecutionTime() {
-        return executionTime;
-    }
-    
-    public void setExecutionTime(LocalDateTime executionTime) {
-        this.executionTime = executionTime;
-    }
-    
-    public long getExecutionDurationMs() {
-        return executionDurationMs;
-    }
-    
-    public void setExecutionDurationMs(long executionDurationMs) {
-        this.executionDurationMs = executionDurationMs;
-    }
-    
+
     public String getErrorMessage() {
         return errorMessage;
     }
-    
+
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
+    }
+
+    public String getScreenshotPath() {
+        return screenshotPath;
+    }
+
+    public void setScreenshotPath(String screenshotPath) {
+        this.screenshotPath = screenshotPath;
+    }
+
+    public Long getExecutionDurationMs() {
+        return executionDurationMs;
+    }
+
+    public void setExecutionDurationMs(Long executionDurationMs) {
+        this.executionDurationMs = executionDurationMs;
     }
 } 
